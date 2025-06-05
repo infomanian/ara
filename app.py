@@ -29,7 +29,7 @@ def chat():
     
 
     # فراخوانی GPT با تاریخچه کامل
-    response = client.chat.commpletions.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=session['history'],
         temperature=0.3
