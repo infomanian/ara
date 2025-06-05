@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify, render_template, session
-import openai
+from openai import OpenAI
 from flask_session import Session
 import os
 from werkzeug.utils import secure_filename
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -29,7 +29,7 @@ def chat():
     
 
     # فراخوانی GPT با تاریخچه کامل
-    response = openai.ChatCompletion.create(
+    response = client.chat.commpletions.create(
         model="gpt-4",
         messages=session['history'],
         temperature=0.3
@@ -72,7 +72,7 @@ def analyze_file():
 
     if not text.strip():
         return jsonify({'response': 'متن فایل خالی است.'})
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=messages,
         temperature=0.3
