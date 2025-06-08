@@ -5,7 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
-client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com/v1")
 
 response = client.chat.completions.create(
     model="deepseek-reasoner",
