@@ -51,7 +51,7 @@ def chat():
 
     # فراخوانی GPT با تاریخچه کامل
     response = client.chat.completions.create(
-        model="gpt-o1",
+        model="gpt-3.5-turbo",
         messages=session['history'],
         temperature=0.3
     )
