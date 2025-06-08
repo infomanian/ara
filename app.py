@@ -5,7 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
-client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com/v1")
+client = OpenAI(api_key="sk-6b1d026ee72d42de94d28c5cbafe4f3c", base_url="https://api.deepseek.com/v1")
 
 app = Flask(__name__)
 app.secret_key = '123'
